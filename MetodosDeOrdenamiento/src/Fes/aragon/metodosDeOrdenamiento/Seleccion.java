@@ -1,16 +1,19 @@
 package Fes.aragon.metodosDeOrdenamiento;
 
+import java.util.Random;
+
 public class Seleccion {
     public static void main(String[] args) {
 
+        Random R= new Random();
         //Se crea el arreglo
-
-        int b[]={8,6,3,4,-54,6,7,8,89,10};
-
+        int[] b =new int [50];
         System.out.print("Tu arreglo es : ");
+        for (int i = 0; i < 50; i++) {
+            b[i]= R.nextInt(1000);
 
+        }
         //Se muestra el arreglo
-
         for (int i = 0; i <b.length ; i++) {
             System.out.print(" " + b[i]);
         }

@@ -1,27 +1,26 @@
 package Fes.aragon.metodosDeOrdenamiento;
 
+import java.util.Random;
+
 public class Mezcla {
 
     public void sort(int arr[], int izq, int der){
         if(izq < der){
-            int mitad = (izq + der) / 2; //punto medio
+            int mitad = (izq + der) / 2;
 
-            //Divide a la mitad (recursividad).
 
             sort(arr, izq, mitad);
             sort(arr, mitad+1, der);
-            ordenamiento(arr, izq, mitad, der); //union
+            ordenamiento(arr, izq, mitad, der);
         }
     }
 
     public void ordenamiento(int arr[], int izq, int mitad, int der) {
 
-        //Tamaño de los sub-arreglos para unirlos.
 
         int n1 = mitad - izq + 1;
         int n2 = der - mitad;
 
-        //Arrays temporales
 
         int izqArray[] = new int [n1];
         int derArray[] = new int [n2];
@@ -46,7 +45,6 @@ public class Mezcla {
             k++;
         }
 
-        //Si quedan elementos por ordenar copiar los elementos restantes de izq y der Array[].
 
         while (i < n1) {
             arr[k] = izqArray[i];
@@ -73,17 +71,24 @@ public class Mezcla {
 
     public static void main(String[] args) {
         Mezcla mezcla = new Mezcla();
-        int[] arreglo = {1,9,2,8,3,7,4,6,5,10};
+        Random R= new Random();
+        //Se crea el arreglo
+        int[] b =new int [50];
+        System.out.print("Tu arreglo es : ");
+        for (int i = 0; i < 50; i++) {
+            b[i]= R.nextInt(1000);
 
-        System.out.println("Tu arreglo es:");
-        for (int value : arreglo) {
-            System.out.print(value + " ");
         }
+        //Se muestra el arreglo
+        for (int i = 0; i <b.length ; i++) {
+            System.out.print(" " + b[i]);
+        }
+        System.out.println( );
 
         System.out.println();
-        System.out.println("Tu arreglo ordenado es :");
-        mezcla.sort(arreglo,0,arreglo.length-1);
-        mezcla.printArray(arreglo);
+        System.out.println("Tu arreglo ordenado es: ");
+        mezcla.sort(b,0,b.length-1);
+        mezcla.printArray(b);
     }
 }
 
